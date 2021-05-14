@@ -6,10 +6,10 @@ class MyList
     public int $size;
     public array $elements;
 
-    public function __construct(int $size)
+    public function __construct(int $size, array $elements = [])
     {
         $this->size = $size;
-        $this->elements = [];
+        $this->elements = $elements;
     }
 
     public function insert($index, $obj): void
@@ -50,7 +50,7 @@ class MyList
 
     public function indexOf($obj): int
     {
-        $arrKeys = array_search($this->elements, $obj);
+        $arrKeys = array_search($obj, $this->elements);
 
         if(empty($arrKeys))
         {
